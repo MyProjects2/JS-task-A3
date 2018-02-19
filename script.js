@@ -10,30 +10,26 @@
  - разница между буквами "е" и "ё".*/
 
 var string = prompt("Напишите слово");
-function checkWord(str){
+function checkWord(string){
     string = string.toLowerCase();
-
-    for (var i = 0; i<= string.length; i++){
-        string = string.replace(' ', '');
-        string = string.replace('ё', 'е');
-        string = string.replace('ь', 'ъ');
-        string = string.replace('ъ', 'ь');
-        string = string.replace(',', '');
-        string = string.replace('.', '');
-        string = string.replace('!', '');
-        string = string.replace('?', '');
-    }
-
+    string = string.split(' ').join('');
+    string = string.split('ё').join('е');
+    string = string.split('ъ').join('ь');
+    string = string.split(',').join('');
+    string = string.split('.').join('');
+    string = string.split('!').join('')
+    string = string.split('?').join('');
+    
     var newString = "";
     for (var i = string.length - 1; i >= 0; i--) { 
     newString += string[i];
     }
 
     if(string === newString){
-        return 'Слово - палидром';
+        return true;
     }
     else {
-        return 'Слово не палидром';
+        return false;
     }
 }
 alert(checkWord(string));
